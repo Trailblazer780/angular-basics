@@ -1,0 +1,29 @@
+<!-- Solution 1 -->
+
+<button class="btn btn-primary" (click)="onToggleDisplay()">
+  Display Details
+</button>
+<p *ngIf="visible">Show or hidden div</p>
+<hr />
+<div
+  *ngFor="let logItem of logs"
+  [ngStyle]="{ backgroundColor: logItem >= 5 ? 'blue' : 'transparent' }"
+  [ngClass]="{'white-text': logItem >= 5}"
+>
+  {{ logItem }}
+</div>
+
+<hr>
+<!-- Solution 2 -->
+<button class="btn btn-primary" (click)="onToggleDisplayTimestamp()">
+    Display Details
+  </button>
+  <p *ngIf="visible">Show or hidden div</p>
+  <hr />
+  <div
+    *ngFor="let logItem of logs2; let i = index"
+    [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
+    [ngClass]="{'white-text': i >= 4}"
+  >
+    {{ logItem }}
+  </div>
